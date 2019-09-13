@@ -1,0 +1,16 @@
+<?xml version='1.0' ?>
+<BuildGraph xmlns="http://www.epicgames.com/BuildGraph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epicgames.com/BuildGraph ../../Engine/Build/Graph/Schema.xsd" >
+
+	<Agent Name="EZPZ Build" Type="Win64;Mac;Linux">
+		<Node Name="UnrealHeaderTool">
+			<Compile Target="UnrealHeaderTool" Configuration="Development" Platform="$(HostPlatform)"/>
+		</Node>
+		
+		<Node Name="UE4 Tools" Requires="UnrealHeaderTool">
+			<Compile Target="CrashReportClient"   Configuration="Shipping"     Platform="$(HostPlatform)"/>
+			<Compile Target="UnrealLightmass"     Configuration="Development"  Platform="$(HostPlatform)"/>
+			<Compile Target="ShaderCompileWorker" Configuration="Development"  Platform="$(HostPlatform)"/>
+		</Node>		
+	</Agent>
+
+</BuildGraph>

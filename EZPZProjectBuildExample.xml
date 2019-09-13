@@ -1,0 +1,14 @@
+<?xml version='1.0' ?>
+<BuildGraph xmlns="http://www.epicgames.com/BuildGraph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epicgames.com/BuildGraph ../../Engine/Build/Graph/Schema.xsd" >
+
+<Include Script="./EZPZBuild.xml">
+
+<Agent Name="EZPZ Project Build" Type="Win64;Mac;Linux">
+	<Node Name="UnrealHeaderTool" Requires="UnrealHeaderTool;UE4 Tools">
+		<Compile Target="<Project>Editor" Configuration="Development" Platform="$(HostPlatform)"/>
+	</Node>
+</Agent>
+
+<!-- Can also define game builds here -->
+
+</BuildGraph>
