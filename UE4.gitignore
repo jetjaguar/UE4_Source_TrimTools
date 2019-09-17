@@ -13,8 +13,43 @@ Engine/Binaries/DotNET/AutomationScripts/Newtonsoft.Json.xml
 # Mac
 *.command
 
-## Multi_Main specific .gitignore
-**/PAE/
+## [OPTIONAL] Engine\Extras
+# Maya 8 MB
+Engine/Extras/Maya_AnimtionRiggingTools/
+Engine/Extras/MayaVelocityGridExporter/
+
+## [OPTIONAL] Engine\Documentation/
+# 100 MB
+Engine/Documentation/
+
+## [OPTIONAL] Engine\Plugins\Experimental
+# 100 MB
+Engine/Experimental
+# Add exceptions with !<File>
+!Engine/Experimental/AutomationUtils
+!Engine/Experimental/Gauntlet
+
+## [OPTIONAL] Production Ready Plugins in Engine\Plugins
+# Unknown size
+Engine/Plugins/Animation/
+# 4 MB
+Engine/Plugins/Compositing
+# Unknown size
+Engine/Plugins/Developer/CLionSourceCodeAccess
+Engine/Plugins/Developer/PerforceSourceControl
+Engine/Plugins/Developer/RenderDocPlugin
+Engine/Plugins/Editor/SpeedTreeImporter
+Engine/Plugins/Enterprise
+Engine/Plugins/Lumin
+Engine/Plugins/Media
+Engine/Plugins/Online
+Engine/Plugins/Portal
+Engine/Plugins/Runtime
+!Engine/Plugins/Runtime/AndroidPermission/
+!Engine/Plugins/Runtime/ReplicationGraph/
+Engine/Plugins/ScriptPlugin/
+Engine/Plugins/Slate
+Engine/Plugins/VirtualProduction
 
 ## UE4 stock .gitignore //UE4/Release-4.22
 #
