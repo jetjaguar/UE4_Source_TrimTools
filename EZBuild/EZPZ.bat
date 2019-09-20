@@ -1,17 +1,20 @@
 @echo off
-title Setting up <Project>
+TITLE Setting up UE4 Project
+::Assuming Default Location of Engine\Build\EZPZ
+SET "TrimSetupConf=..\TrimSize\TrimSetup.bat"
+SET "BinaryMarker=..\BinaryPrerequisitesMarker.dat"
+SET "SetupLocation=..\..\..\Setup.bat"
+SET "GPFLocation=..\..\..\GenerateProjectFiles.bat"
 
-set excludeMac=-exclude=Mac -exclude=osx32 -excludeosx64
-set excludeWin32=-excludeWin32
-set excludeMobile-exclude=Android -exclude=HTML5 -excludeIOS=-exclude=IOS
-set excludeLinux=-exclude=Linux
-set platformExcludes= %excludeMac% %excludeWin32% %excludeMobile% %excludeLinux%
-
-if exist Engine\Build\BinaryPrerequisitesMarker.dat (
-	echo "Setup already done"
-) else (
-	call Setup.bat %platformExcludes%
+::Read TrimSize system for platforms to _not_ download
+SET platformExcludes=
+IF EXIST "%TrimSetupConf%" (
+	call "%TrimSetupConf%"
 )
-call GenerateProjectFiles.bat
-:: call Engine\Build\BatchFiles\RunUAT.bat BuildGraph -script="Multivania\Build\MultivaniaBuild.xml" -target="Multivania Build"
-:: call Engine\Binaries\Win64\UE4Editor.exe Multivania\Multivania.uproject
+
+IF EXIST "%BinaryMarker%" (
+	ECHO "Setup already done"
+) ELSE (
+	call %SetupLocation% %platformExcludes%
+)
+call %GPFLocation%
